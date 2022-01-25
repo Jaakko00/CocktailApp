@@ -8,8 +8,8 @@ import {
   ScrollView,
 } from "react-native";
 import axios from "axios";
-import DrinkCard from "./DrinkCard";
-import SearchResults from "./SearchResults";
+import DrinkCard from "../search/DrinkCard";
+import SearchResults from "../search/SearchResults";
 
 export default function Home() {
   const [search, setSearch] = useState();

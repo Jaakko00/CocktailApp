@@ -1,7 +1,7 @@
 import { Text, View } from 'react-native';
-import Search from './Search';
-import Home from './Home';
-import Saved from "./Saved";
+import Search from './search/Search';
+import Home from './home/Home';
+import Saved from "./saved/Saved";
 import * as React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
