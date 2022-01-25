@@ -3,18 +3,22 @@ import { StyleSheet, View, ScrollView } from "react-native";
 import DrinkCard from "./DrinkCard";
 
 export default function SearchResults(props) {
-  let results = 
-    props.searchResult.map(
-      ({ strDrink, idDrink, strCategory, strAlcoholic, strDrinkThumb }) => (
-        <DrinkCard
-          key={idDrink}
-          name={strDrink}
-          category={strCategory}
-          alc={strAlcoholic}
-          pic={strDrinkThumb}
-        ></DrinkCard>
-      )
-    );
+    let results;
+    if(props.searchResult !== null) {
+
+        results = 
+          props.searchResult.map(
+            ({ strDrink, idDrink, strCategory, strAlcoholic, strDrinkThumb }) => (
+              <DrinkCard
+                key={idDrink}
+                name={strDrink}
+                category={strCategory}
+                alc={strAlcoholic}
+                pic={strDrinkThumb}
+              ></DrinkCard>
+            )
+          );
+    }
   
   return (
     <View>

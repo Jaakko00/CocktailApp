@@ -26,7 +26,9 @@ export default function Search() {
     axios
       .request(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${e}`)
       .then(function (response) {
-        setSearchResult(response.data.drinks);
+        if (response.data !== null) {
+          setSearchResult(response.data.drinks);
+        }
       })
       .catch(function (error) {
         console.error(error);
