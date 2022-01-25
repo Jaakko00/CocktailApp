@@ -14,12 +14,18 @@ import SearchResults from "./SearchResults";
 export default function Search() {
   const [search, setSearch] = useState();
   const [searchResult, setSearchResult] = useState([{}]);
+  const [searched, setSearched] = useState(false);
 
   useEffect(() => {
-    if (search == null) {
-      searchCocktail("");
-    }
+    handleFetch();
   });
+
+  let handleFetch = () => {
+    if (!searched) {
+      searchCocktail("");
+      setSearched(true);
+    }
+  };
 
   let searchCocktail = (e) => {
     console.log(e);

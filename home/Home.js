@@ -19,7 +19,6 @@ export default function Home() {
         <Category category="Shot"></Category>
         <Category category="Cocktail"></Category>
         <Category category="Punch / Party Drink"></Category>
-        <Category category="Punch / Party Drink"></Category>
       </ScrollView>
     </View>
   );

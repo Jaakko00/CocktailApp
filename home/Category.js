@@ -4,16 +4,23 @@ import DrinkSquare from "./DrinkSquare";
 import axios from "axios";
 
 export default function Category(props) {
-  const [search, setSearch] = useState();
-  const [searchResult, setSearchResult] = useState([{}]);
+  const [searchResult, setSearchResult] = useState([]);
+  const [searched, setSearched] = useState(false);
 
   useEffect(() => {
-    if (search == null) {
-      searchCategory(props.category);
-    }
+    handleSearch();
   });
 
+  let handleSearch = () => {
+    if (!searched) {
+      searchCategory(props.category);
+      setSearched(true);
+      
+    }
+  };
+
   let searchCategory = (category) => {
+      console.log("fetching category");
     axios
       .request(
         `https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${category}`
@@ -29,13 +36,6 @@ export default function Category(props) {
   };
 
   let results;
-  let noResults = (
-    <View style={styles.results}>
-      <Text style={styles.noResults}>
-        Sadly nothing matched with your search
-      </Text>
-    </View>
-  );
   if (searchResult !== null) {
     results = searchResult.map(
       ({ strDrink, idDrink, strCategory, strAlcoholic, strDrinkThumb }) => (
@@ -51,12 +51,9 @@ export default function Category(props) {
   }
 
   return (
-    <View>
-      <Text>{props.category}</Text>
-      <ScrollView horizontal>
-        {results}
-        {results == null && noResults}
-      </ScrollView>
+    <View style={styles.category}>
+      <Text style={styles.title}>{props.category}s</Text>
+      <ScrollView horizontal>{results}</ScrollView>
     </View>
   );
 }
@@ -66,8 +63,16 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  noResults: {
-    color: "#a3a3a3",
-    margin: 20,
+  category: {
+    borderWidth: 0,
+    borderRadius: 10,
+    margin: 10,
+    backgroundColor: "#fff",
+  },
+  title: {
+    margin: 10,
+    fontSize: 20,
+    fontWeight: "bold",
+    color: "#000",
   },
 });
