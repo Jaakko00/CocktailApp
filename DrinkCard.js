@@ -12,21 +12,23 @@ import { borderLeftColor } from "react-native/Libraries/Components/View/ReactNat
 export default function DrinkCard(props) {
   return (
     <View style={styles.shadowProp}>
-      <ImageBackground
-        source={{
-          uri: props.pic,
-        }}
-        style={styles.card}
-        resizeMode="cover"
-      >
-        <View style={styles.cardText}>
-          <Text style={styles.cardTitle}>{props.name}</Text>
-          <Text style={styles.cardInfo}>
-            {props.alc}, {props.category}
-          </Text>
-        </View>
-        <View></View>
-      </ImageBackground>
+      <View style={styles.card}>
+        <ImageBackground
+          source={{
+            uri: props.pic,
+          }}
+          style={styles.image}
+          resizeMode="cover"
+        >
+          <View style={styles.cardText}>
+            <Text style={styles.cardTitle}>{props.name}</Text>
+            <Text style={styles.cardInfo}>
+              {props.alc}, {props.category}
+            </Text>
+          </View>
+          <View></View>
+        </ImageBackground>
+      </View>
     </View>
   );
 }
@@ -37,11 +39,17 @@ const styles = StyleSheet.create({
     margin: 10,
     backgroundColor: "#fff",
     alignItems: "flex-start",
-    justifyContent: "space-between",
+    justifyContent: "flex-start",
     flexDirection: "row",
     borderWidth: 0,
     borderRadius: 10,
     overflow: "hidden",
+  },
+  image: {
+    height: 300,
+    width: 500,
+    borderWidth: 0,
+    borderRadius: 10,
   },
   cardText: {
     borderWidth: 0,
