@@ -10,6 +10,7 @@ import {
 import axios from "axios";
 import DrinkCard from "../search/DrinkCard";
 import SearchResults from "../search/SearchResults";
+import Category from "./Category";
 
 export default function Home() {
   const [search, setSearch] = useState();
@@ -44,7 +45,7 @@ export default function Home() {
       <View style={styles.search}>
         
       </View>
-      <SearchResults searchResult={searchResult}></SearchResults>
+      <Category searchResult={searchResult}></Category>
     </View>
   );
 }
