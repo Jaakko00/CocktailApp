@@ -47,6 +47,7 @@ export default function Search() {
           style={styles.input}
           placeholder="Search cocktails"
           onChangeText={(e) => handleSearch(e)}
+          clearButtonMode="always"
         />
       </View>
       <SearchResults searchResult={searchResult}></SearchResults>
@@ -70,5 +71,6 @@ const styles = StyleSheet.create({
     height: 50,
     borderWidth: 0,
     padding: 10,
+    fontSize: 20,
   },
 });

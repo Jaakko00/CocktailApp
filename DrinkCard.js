@@ -12,17 +12,15 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 export default function DrinkCard(props) {
   return (
     <View style={styles.shadowProp}>
-
       <View style={styles.card}>
-          
         <ImageBackground
           source={{
             uri: props.pic,
           }}
           style={styles.image}
           resizeMode="cover"
+          imageStyle={{ opacity: 0.7 }}
         >
-
           <View style={styles.cardText}>
             <Text style={styles.cardTitle}>
               {props.name}
@@ -41,14 +39,11 @@ export default function DrinkCard(props) {
             <MaterialCommunityIcons
               name="heart-plus-outline"
               size={35}
-              color="#E40066"
+              color="#fff"
             ></MaterialCommunityIcons>
           </View>
-
         </ImageBackground>
-
       </View>
-
     </View>
   );
 }
@@ -57,7 +52,7 @@ const styles = StyleSheet.create({
   card: {
     height: 120,
     margin: 10,
-    backgroundColor: "#fff",
+    backgroundColor: "#000",
     alignItems: "flex-start",
     justifyContent: "flex-start",
     flexDirection: "row",
@@ -72,7 +67,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     flexDirection: "row",
     justifyContent: "space-between",
-    opacity: 1,
+
   },
   cardText: {
     borderWidth: 0,
@@ -89,7 +84,7 @@ const styles = StyleSheet.create({
   },
   cardInfo: {
     borderWidth: 0,
-    fontSize: 15,
+    fontSize: 20,
     marginTop: 5,
     fontStyle: "italic",
     color: "#fff",
