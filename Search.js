@@ -9,10 +9,17 @@ import {
 } from "react-native";
 import axios from "axios";
 import DrinkCard from "./DrinkCard";
+import SearchResults from "./SearchResults";
 
 export default function Search() {
   const [search, setSearch] = useState();
   const [searchResult, setSearchResult] = useState([{}]);
+
+  useEffect(() => {
+    if (search == null) {
+      searchCocktail("");
+    }
+  });
 
   let searchCocktail = (e) => {
     console.log(e);
@@ -40,26 +47,13 @@ export default function Search() {
           onChangeText={(e) => handleSearch(e)}
         />
       </View>
-      <ScrollView>
-        {searchResult.map(
-          ({ strDrink, idDrink, strCategory, strAlcoholic, strDrinkThumb }) => (
-            <DrinkCard
-              key={idDrink}
-              name={strDrink}
-              category={strCategory}
-              alc={strAlcoholic}
-              pic={strDrinkThumb}
-
-            ></DrinkCard>
-          )
-        )}
-      </ScrollView>
+      <SearchResults searchResult={searchResult}></SearchResults>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: { },
+  container: {},
   search: {
     marginBottom: 20,
     backgroundColor: "#fff",
