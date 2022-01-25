@@ -25,7 +25,7 @@ export default function Home() {
 }
 
 const styles = StyleSheet.create({
-  container: {},
+  container: { backgroundColor: "#E40066" },
   input: {
     flex: 1,
     height: 50,
