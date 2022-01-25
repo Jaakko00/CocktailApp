@@ -7,12 +7,14 @@ import {
   Image,
   ImageBackground,
 } from "react-native";
-import { borderLeftColor } from "react-native/Libraries/Components/View/ReactNativeStyleAttributes";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 export default function DrinkCard(props) {
   return (
     <View style={styles.shadowProp}>
+
       <View style={styles.card}>
+          
         <ImageBackground
           source={{
             uri: props.pic,
@@ -20,15 +22,33 @@ export default function DrinkCard(props) {
           style={styles.image}
           resizeMode="cover"
         >
+
           <View style={styles.cardText}>
-            <Text style={styles.cardTitle}>{props.name}</Text>
+            <Text style={styles.cardTitle}>
+              {props.name}
+              <MaterialCommunityIcons
+                name="glass-cocktail"
+                size={25}
+              ></MaterialCommunityIcons>
+            </Text>
+
             <Text style={styles.cardInfo}>
               {props.alc}, {props.category}
             </Text>
           </View>
-          <View></View>
+
+          <View style={styles.cardText}>
+            <MaterialCommunityIcons
+              name="heart-plus-outline"
+              size={35}
+              color="#E40066"
+            ></MaterialCommunityIcons>
+          </View>
+
         </ImageBackground>
+
       </View>
+
     </View>
   );
 }
@@ -47,9 +67,12 @@ const styles = StyleSheet.create({
   },
   image: {
     height: 300,
-    width: 500,
+    width: "100%",
     borderWidth: 0,
     borderRadius: 10,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    opacity: 1,
   },
   cardText: {
     borderWidth: 0,
