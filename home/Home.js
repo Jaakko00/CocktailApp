@@ -18,21 +18,22 @@ const Stack = createStackNavigator();
 
 
 
-function HomeScreen({ navigation }) {
+function HomeScreen(props) {
+
   return (
     <View style={styles.container}>
       <ScrollView>
         <Category
           category="Shot"
-          navigate={navigation.navigate}
+          navigate={props.navigation.navigate}
         ></Category>
         <Category
           category="Cocktail"
-          navigate={navigation.navigate}
+          navigate={props.navigation.navigate}
         ></Category>
         <Category
           category="Punch / Party Drink"
-          navigate={navigation.navigate}
+          navigate={props.navigation.navigate}
         ></Category>
       </ScrollView>
     </View>
@@ -41,10 +42,11 @@ function HomeScreen({ navigation }) {
 
 
 export default function Home() {
+  
   return (
     <Stack.Navigator>
-      <Stack.Screen name="HomeScreen" component={HomeScreen} />
-      <Stack.Screen name="DrinkScreen" component={DrinkScreen} />
+      <Stack.Screen name="HomeScreen" component={HomeScreen}/>
+      <Stack.Screen name="DrinkScreen" component={DrinkScreen}/>
     </Stack.Navigator>
   );
 }

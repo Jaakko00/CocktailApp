@@ -37,10 +37,12 @@ export default function Category(props) {
 
   let results;
   if (searchResult !== null) {
+      
     results = searchResult.map(
       ({ strDrink, idDrink, strCategory, strAlcoholic, strDrinkThumb }) => (
         <DrinkSquare
           key={idDrink}
+          id={idDrink}
           name={strDrink}
           category={strCategory}
           alc={strAlcoholic}

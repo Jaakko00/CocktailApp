@@ -9,43 +9,44 @@ import {
 } from "react-native";
 import axios from "axios";
 
-export default function DrinkScreen({ navigation }, props) {
+export default function DrinkScreen(props) {
   const [searchResult, setSearchResult] = useState([]);
   const [searched, setSearched] = useState(false);
 
   useEffect(() => {
+      console.log(props)
     handleSearch();
+    
   });
 
   let handleSearch = () => {
     if (!searched) {
-      searchCategory(props.category);
+      searchById();
       setSearched(true);
     }
   };
 
-  let searchCategory = (category) => {
-    console.log("fetching category");
-    axios
-      .request(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=11007`)
-      .then(function (response) {
-        if (response.data !== null) {
-          setSearchResult(response.data.drinks[0]);
-          console.log(response.data.drinks[0].strDrink)
-        }
-      })
-      .catch(function (error) {
-        console.error(error);
-      });
+  let searchById = () => {
+    if (props.route.params.id != null) {
+      axios
+        .request(
+          `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${props.route.params.id}`
+        )
+        .then(function (response) {
+          if (response.data !== null) {
+            setSearchResult(response.data.drinks[0]);
+            console.log(response.data.drinks[0].strDrink);
+          }
+        })
+        .catch(function (error) {
+          console.error(error);
+        });
+    }
   };
 
   return (
-    <View
-      style={styles.results}
-    >
-        <Text>
-            {searched && searchResult.strDrink}
-        </Text>
+    <View style={styles.results}>
+      <Text>{searched && searchResult.strDrink}</Text>
     </View>
   );
 }

@@ -12,7 +12,8 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 export default function DrinkSquare(props) {
   let handlePress = () => {
-      props.navigate("DrinkScreen");
+
+      props.navigate("DrinkScreen", {id: props.id})
   };
 
   return (

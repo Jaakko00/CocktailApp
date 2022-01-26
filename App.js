@@ -1,4 +1,5 @@
 import { Text, View } from 'react-native';
+import { useEffect, useState } from "react";
 import Search from './search/Search';
 import Home from './home/Home';
 import Saved from "./saved/Saved";
@@ -13,6 +14,8 @@ const Tab = createBottomTabNavigator();
 
 
 function MyTabs() {
+  
+
   return (
     <Tab.Navigator
       initialRouteName="Feed"
