@@ -12,6 +12,7 @@ import Category from "./Category";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
 import { TabRouter } from "react-navigation";
+import DrinkScreen from "../DrinkScreen";
 
 const Stack = createStackNavigator();
 
@@ -38,18 +39,11 @@ function HomeScreen({ navigation }) {
   );
 }
 
-function DrinkScreen({ navigation }) {
-  return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <Button title="Go back" onPress={() => navigation.goBack()} />
-    </View>
-  );
-}
 
 export default function Home() {
   return (
     <Stack.Navigator>
-      <Stack.Screen name=" " component={HomeScreen} />
+      <Stack.Screen name="HomeScreen" component={HomeScreen} />
       <Stack.Screen name="DrinkScreen" component={DrinkScreen} />
     </Stack.Navigator>
   );
