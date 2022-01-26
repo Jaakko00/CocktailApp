@@ -45,6 +45,7 @@ export default function Category(props) {
           category={strCategory}
           alc={strAlcoholic}
           pic={strDrinkThumb}
+          navigate={props.navigate}
         ></DrinkSquare>
       )
     );

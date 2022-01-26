@@ -6,29 +6,36 @@ import {
   Button,
   Image,
   ImageBackground,
+  Pressable,
 } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 export default function DrinkSquare(props) {
-  return (
-    <View style={styles.shadowProp}>
-      <View style={styles.card}>
-        <ImageBackground
-          source={{
-            uri: props.pic,
-          }}
-          style={styles.image}
-          resizeMode="cover"
-          imageStyle={{ opacity: 0.7 }}
-        >
-          <View style={styles.cardText}>
-            <Text style={styles.cardTitle}>{props.name}</Text>
+  let handlePress = () => {
+      props.navigate("DrinkScreen");
+  };
 
-            <Text style={styles.cardInfo}></Text>
-          </View>
-        </ImageBackground>
+  return (
+    <Pressable onPress={handlePress}>
+      <View style={styles.shadowProp}>
+        <View style={styles.card}>
+          <ImageBackground
+            source={{
+              uri: props.pic,
+            }}
+            style={styles.image}
+            resizeMode="cover"
+            imageStyle={{ opacity: 0.7 }}
+          >
+            <View style={styles.cardText}>
+              <Text style={styles.cardTitle}>{props.name}</Text>
+
+              <Text style={styles.cardInfo}></Text>
+            </View>
+          </ImageBackground>
+        </View>
       </View>
-    </View>
+    </Pressable>
   );
 }
 

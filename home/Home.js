@@ -15,6 +15,29 @@ import { TabRouter } from "react-navigation";
 
 const Stack = createStackNavigator();
 
+
+
+function HomeScreen({ navigation }) {
+  return (
+    <View style={styles.container}>
+      <ScrollView>
+        <Category
+          category="Shot"
+          navigate={navigation.navigate}
+        ></Category>
+        <Category
+          category="Cocktail"
+          navigate={navigation.navigate}
+        ></Category>
+        <Category
+          category="Punch / Party Drink"
+          navigate={navigation.navigate}
+        ></Category>
+      </ScrollView>
+    </View>
+  );
+}
+
 function DrinkScreen({ navigation }) {
   return (
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
@@ -23,26 +46,10 @@ function DrinkScreen({ navigation }) {
   );
 }
 
-function HomeScreen({ navigation }) {
-  return(
-    <View style={styles.container}>
-    <ScrollView>
-      <Button
-        title="Go to DrinkScreen"
-        onPress={() => navigation.navigate("DrinkScreen")}
-      />
-      <Category category="Shot"></Category>
-      <Category category="Cocktail"></Category>
-      <Category category="Punch / Party Drink"></Category>
-    </ScrollView>
-  </View>
-  );
-}
-
 export default function Home() {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="HomeScreen" component={HomeScreen} />
+      <Stack.Screen name=" " component={HomeScreen} />
       <Stack.Screen name="DrinkScreen" component={DrinkScreen} />
     </Stack.Navigator>
   );
