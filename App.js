@@ -19,12 +19,12 @@ function MyTabs() {
       screenOptions={{
         tabBarActiveTintColor: "#E40066",
         color: "#E40066",
+        headerShown: false,
       }}
     >
       <Tab.Screen
         name="Home"
         component={Home}
-        
         options={{
           tabBarLabel: "Home",
           tabBarIcon: ({ color, size }) => (
