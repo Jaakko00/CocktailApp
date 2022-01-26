@@ -5,10 +5,12 @@ import Saved from "./saved/Saved";
 import * as React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createStackNavigator } from "@react-navigation/stack";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 
 const Tab = createBottomTabNavigator();
+
 
 function MyTabs() {
   return (

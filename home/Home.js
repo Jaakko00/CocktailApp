@@ -7,20 +7,44 @@ import {
   Button,
   ScrollView,
 } from "react-native";
-import axios from "axios";
-import DrinkCard from "../search/DrinkCard";
-import SearchResults from "../search/SearchResults";
+
 import Category from "./Category";
+import { createStackNavigator } from "@react-navigation/stack";
+import { NavigationContainer } from "@react-navigation/native";
+import { TabRouter } from "react-navigation";
+
+const Stack = createStackNavigator();
+
+function DrinkScreen({ navigation }) {
+  return (
+    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+      <Button title="Go back" onPress={() => navigation.goBack()} />
+    </View>
+  );
+}
+
+function HomeScreen({ navigation }) {
+  return(
+    <View style={styles.container}>
+    <ScrollView>
+      <Button
+        title="Go to DrinkScreen"
+        onPress={() => navigation.navigate("DrinkScreen")}
+      />
+      <Category category="Shot"></Category>
+      <Category category="Cocktail"></Category>
+      <Category category="Punch / Party Drink"></Category>
+    </ScrollView>
+  </View>
+  );
+}
 
 export default function Home() {
   return (
-    <View style={styles.container}>
-      <ScrollView>
-        <Category category="Shot"></Category>
-        <Category category="Cocktail"></Category>
-        <Category category="Punch / Party Drink"></Category>
-      </ScrollView>
-    </View>
+    <Stack.Navigator>
+      <Stack.Screen name="HomeScreen" component={HomeScreen} />
+      <Stack.Screen name="DrinkScreen" component={DrinkScreen} />
+    </Stack.Navigator>
   );
 }
 
