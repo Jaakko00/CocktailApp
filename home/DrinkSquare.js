@@ -22,14 +22,10 @@ export default function DrinkSquare(props) {
           imageStyle={{ opacity: 0.7 }}
         >
           <View style={styles.cardText}>
-            <Text style={styles.cardTitle}>
-              {props.name}
-            </Text>
+            <Text style={styles.cardTitle}>{props.name}</Text>
 
-            <Text style={styles.cardInfo}>
-            </Text>
+            <Text style={styles.cardInfo}></Text>
           </View>
-
         </ImageBackground>
       </View>
     </View>

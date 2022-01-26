@@ -11,13 +11,14 @@ export default function SearchResults(props) {
         </Text>
       </View>
     );
-    if(props.searchResult !== null) {
-
+    if(props.searched) {
+      
         results = 
           props.searchResult.map(
             ({ strDrink, idDrink, strCategory, strAlcoholic, strDrinkThumb }) => (
               <DrinkCard
-                key={idDrink}
+                key={parseInt(idDrink)}
+                id={idDrink}
                 name={strDrink}
                 category={strCategory}
                 alc={strAlcoholic}

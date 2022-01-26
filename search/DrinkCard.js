@@ -31,7 +31,7 @@ export default function DrinkCard(props) {
             </Text>
 
             <Text style={styles.cardInfo}>
-              {props.alc}, {props.category}
+              {props.alc}, {props.category}, {props.id}
             </Text>
           </View>
 

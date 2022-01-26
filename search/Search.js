@@ -56,7 +56,7 @@ export default function Search() {
           clearButtonMode="always"
         />
       </View>
-      <SearchResults searchResult={searchResult}></SearchResults>
+      <SearchResults searchResult={searchResult} searched={searched}></SearchResults>
     </View>
   );
 }
