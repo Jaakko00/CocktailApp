@@ -3,7 +3,7 @@ import { StyleSheet, View, ScrollView, Text } from "react-native";
 import DrinkSquare from "./DrinkSquare";
 import axios from "axios";
 
-export default function Category(props) {
+export default function NonAlcoholic(props) {
   const [searchResult, setSearchResult] = useState([]);
   const [searched, setSearched] = useState(false);
 
@@ -12,19 +12,16 @@ export default function Category(props) {
   });
 
   let handleSearch = () => {
-    
     if (!searched) {
-      searchCategory(props.category);
+      searchAlcoholic(props.category);
       setSearched(true);
-      
     }
   };
 
-
-  let searchCategory = (category) => {
+  let searchAlcoholic = (category) => {
     axios
       .request(
-        `https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${category}`
+        `https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=${category}`
       )
       .then(function (response) {
         if (response.data !== null) {
@@ -36,9 +33,9 @@ export default function Category(props) {
       });
   };
 
+
   let results;
   if (searchResult !== null) {
-      
     results = searchResult.map(
       ({ strDrink, idDrink, strCategory, strAlcoholic, strDrinkThumb }) => (
         <DrinkSquare
@@ -56,7 +53,7 @@ export default function Category(props) {
 
   return (
     <View style={styles.category}>
-      <Text style={styles.title}>{props.category}s</Text>
+      <Text style={styles.title}>Non alcoholic</Text>
       <ScrollView horizontal>{results}</ScrollView>
     </View>
   );
@@ -70,7 +67,6 @@ const styles = StyleSheet.create({
   category: {
     borderWidth: 0,
     marginTop: 10,
-
   },
   title: {
     margin: 10,

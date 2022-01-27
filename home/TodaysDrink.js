@@ -1,9 +1,10 @@
 import react, { useEffect, useState } from "react";
 import { StyleSheet, View, ScrollView, Text } from "react-native";
 import DrinkSquare from "./DrinkSquare";
+import DrinkCard from "../search/DrinkCard";
 import axios from "axios";
 
-export default function Category(props) {
+export default function TodaysDrink(props) {
   const [searchResult, setSearchResult] = useState([]);
   const [searched, setSearched] = useState(false);
 
@@ -12,23 +13,18 @@ export default function Category(props) {
   });
 
   let handleSearch = () => {
-    
     if (!searched) {
-      searchCategory(props.category);
+      searchAlcoholic(props.category);
       setSearched(true);
-      
     }
   };
 
-
-  let searchCategory = (category) => {
+  let searchAlcoholic = (category) => {
     axios
-      .request(
-        `https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${category}`
-      )
+      .request(`https://www.thecocktaildb.com/api/json/v1/1/random.php`)
       .then(function (response) {
         if (response.data !== null) {
-          setSearchResult(response.data.drinks);
+          setSearchResult(response.data.drinks[0]);
         }
       })
       .catch(function (error) {
@@ -36,28 +32,18 @@ export default function Category(props) {
       });
   };
 
-  let results;
-  if (searchResult !== null) {
-      
-    results = searchResult.map(
-      ({ strDrink, idDrink, strCategory, strAlcoholic, strDrinkThumb }) => (
-        <DrinkSquare
-          key={idDrink}
-          id={idDrink}
-          name={strDrink}
-          category={strCategory}
-          alc={strAlcoholic}
-          pic={strDrinkThumb}
-          navigate={props.navigate}
-        ></DrinkSquare>
-      )
-    );
-  }
 
   return (
     <View style={styles.category}>
-      <Text style={styles.title}>{props.category}s</Text>
-      <ScrollView horizontal>{results}</ScrollView>
+      <Text style={styles.title}>You should try</Text>
+      <DrinkCard
+        id={searchResult.idDrink}
+        name={searchResult.strDrink}
+        category={searchResult.strCategory}
+        alc={searchResult.strAlcoholic}
+        pic={searchResult.strDrinkThumb}
+        navigate={props.navigate}
+      ></DrinkCard>
     </View>
   );
 }
@@ -70,7 +56,6 @@ const styles = StyleSheet.create({
   category: {
     borderWidth: 0,
     marginTop: 10,
-
   },
   title: {
     margin: 10,

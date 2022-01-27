@@ -9,6 +9,8 @@ import {
 } from "react-native";
 
 import Category from "./Category";
+import NonAlcoholic from "./NonAlcoholic";
+import TodaysDrink from "./TodaysDrink";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
 import { TabRouter } from "react-navigation";
@@ -16,13 +18,15 @@ import DrinkScreen from "../DrinkScreen";
 
 const Stack = createStackNavigator();
 
-
-
 function HomeScreen(props) {
-
   return (
     <View style={styles.container}>
       <ScrollView>
+        <TodaysDrink navigate={props.navigation.navigate}></TodaysDrink>
+        <NonAlcoholic
+          category="Non_Alcoholic"
+          navigate={props.navigation.navigate}
+        ></NonAlcoholic>
         <Category
           category="Shot"
           navigate={props.navigation.navigate}
@@ -68,9 +72,7 @@ function HomeScreen(props) {
   );
 }
 
-
 export default function Home() {
-  
   return (
     <Stack.Navigator>
       <Stack.Screen
@@ -82,7 +84,7 @@ export default function Home() {
             backgroundColor: "#171717",
           },
           headerTintColor: "#fff",
-          
+
           headerShown: true,
           headerTransparent: false,
         }}

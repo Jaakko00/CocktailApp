@@ -1,1 +1,1 @@
-GET https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=11007
+GET https://www.thecocktaildb.com/api/json/v1/1/random.php

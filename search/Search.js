@@ -20,7 +20,7 @@ const Stack = createStackNavigator();
 
 function SearchScreen(props) {
   const [search, setSearch] = useState();
-  const [searchResult, setSearchResult] = useState([{}]);
+  const [searchResult, setSearchResult] = useState([]);
   const [searched, setSearched] = useState(false);
 
   useEffect(() => {

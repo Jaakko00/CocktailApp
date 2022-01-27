@@ -40,13 +40,7 @@ export default function DrinkCard(props) {
               </Text>
             </View>
 
-            <View style={styles.cardText}>
-              <MaterialCommunityIcons
-                name="heart-plus-outline"
-                size={35}
-                color="#fff"
-              ></MaterialCommunityIcons>
-            </View>
+            
           </ImageBackground>
         </View>
       </View>
