@@ -13,19 +13,19 @@ export default function SearchResults(props) {
     );
     if(props.searched) {
       
-        results = 
-          props.searchResult.map(
-            ({ strDrink, idDrink, strCategory, strAlcoholic, strDrinkThumb }) => (
-              <DrinkCard
-                key={parseInt(idDrink)}
-                id={idDrink}
-                name={strDrink}
-                category={strCategory}
-                alc={strAlcoholic}
-                pic={strDrinkThumb}
-              ></DrinkCard>
-            )
-          );
+        results = props.searchResult.map(
+          ({ strDrink, idDrink, strCategory, strAlcoholic, strDrinkThumb }) => (
+            <DrinkCard
+              key={parseInt(idDrink)}
+              id={idDrink}
+              name={strDrink}
+              category={strCategory}
+              alc={strAlcoholic}
+              pic={strDrinkThumb}
+              navigate={props.navigate}
+            ></DrinkCard>
+          )
+        );
     }
   
   return (

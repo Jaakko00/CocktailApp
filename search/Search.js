@@ -11,7 +11,14 @@ import axios from "axios";
 import DrinkCard from "./DrinkCard";
 import SearchResults from "./SearchResults";
 
-export default function Search() {
+import { createStackNavigator } from "@react-navigation/stack";
+import { NavigationContainer } from "@react-navigation/native";
+import { TabRouter } from "react-navigation";
+import DrinkScreen from "../DrinkScreen";
+
+const Stack = createStackNavigator();
+
+function SearchScreen(props) {
   const [search, setSearch] = useState();
   const [searchResult, setSearchResult] = useState([{}]);
   const [searched, setSearched] = useState(false);
@@ -56,10 +63,53 @@ export default function Search() {
           clearButtonMode="always"
         />
       </View>
-      <SearchResults searchResult={searchResult} searched={searched}></SearchResults>
+      <SearchResults
+        searchResult={searchResult}
+        searched={searched}
+        navigate={props.navigation.navigate}
+      ></SearchResults>
     </View>
   );
 }
+
+export default function Search() {
+  
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        name="SearchScreen"
+        component={SearchScreen}
+        options={{
+          title: "",
+          headerStyle: {
+            backgroundColor: "#171717",
+          },
+          headerTintColor: "#fff",
+          headerTitleStyle: {
+            fontWeight: "bold",
+          },
+          headerShown: true,
+          headerTransparent: false
+        }}
+      />
+      <Stack.Screen
+        name="DrinkScreen"
+        component={DrinkScreen}
+        options={{
+          title: "",
+          headerStyle: {
+            backgroundColor: "#171717",
+          },
+          headerTintColor: "#fff",
+          headerTitleStyle: {
+            fontWeight: "bold",
+          },
+        }}
+      />
+    </Stack.Navigator>
+  );
+}
+
 
 const styles = StyleSheet.create({
   container: { backgroundColor: "#171717" },

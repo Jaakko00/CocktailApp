@@ -6,45 +6,51 @@ import {
   Button,
   Image,
   ImageBackground,
+  Pressable,
 } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 export default function DrinkCard(props) {
+  let handlePress = () => {
+    props.navigate("DrinkScreen", { id: props.id });
+  };
   return (
-    <View style={styles.shadowProp}>
-      <View style={styles.card}>
-        <ImageBackground
-          source={{
-            uri: props.pic,
-          }}
-          style={styles.image}
-          resizeMode="cover"
-          imageStyle={{ opacity: 0.7 }}
-        >
-          <View style={styles.cardText}>
-            <Text style={styles.cardTitle}>
-              {props.name}
+    <Pressable onPress={handlePress}>
+      <View style={styles.shadowProp}>
+        <View style={styles.card}>
+          <ImageBackground
+            source={{
+              uri: props.pic,
+            }}
+            style={styles.image}
+            resizeMode="cover"
+            imageStyle={{ opacity: 0.7 }}
+          >
+            <View style={styles.cardText}>
+              <Text style={styles.cardTitle}>
+                {props.name}
+                <MaterialCommunityIcons
+                  name="glass-cocktail"
+                  size={25}
+                ></MaterialCommunityIcons>
+              </Text>
+
+              <Text style={styles.cardInfo}>
+                {props.alc}, {props.category}
+              </Text>
+            </View>
+
+            <View style={styles.cardText}>
               <MaterialCommunityIcons
-                name="glass-cocktail"
-                size={25}
+                name="heart-plus-outline"
+                size={35}
+                color="#fff"
               ></MaterialCommunityIcons>
-            </Text>
-
-            <Text style={styles.cardInfo}>
-              {props.alc}, {props.category}
-            </Text>
-          </View>
-
-          <View style={styles.cardText}>
-            <MaterialCommunityIcons
-              name="heart-plus-outline"
-              size={35}
-              color="#fff"
-            ></MaterialCommunityIcons>
-          </View>
-        </ImageBackground>
+            </View>
+          </ImageBackground>
+        </View>
       </View>
-    </View>
+    </Pressable>
   );
 }
 
@@ -67,7 +73,6 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     flexDirection: "row",
     justifyContent: "space-between",
-
   },
   cardText: {
     borderWidth: 0,
