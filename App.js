@@ -19,10 +19,19 @@ function MyTabs() {
   return (
     <Tab.Navigator
       initialRouteName="Feed"
+      
       screenOptions={{
         tabBarActiveTintColor: "#E40066",
-        color: "#E40066",
+        tabBarInactiveTintColor: "#fff",
+        tabBarActiveBackgroundColor: "#171717",
+        tabBarInactiveBackgroundColor: "#171717",
+        
         headerShown: false,
+        style: {
+          backgroundColor: "#171717",
+          paddingBottom: 100,
+          
+        },
       }}
     >
       <Tab.Screen
@@ -65,7 +74,7 @@ function MyTabs() {
 
 export default function App() {
   return (
-    <NavigationContainer>
+    <NavigationContainer style={{backgroundColor: "#171717"}}>
       <MyTabs />
     </NavigationContainer>
   );

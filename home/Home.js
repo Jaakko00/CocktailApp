@@ -45,14 +45,42 @@ export default function Home() {
   
   return (
     <Stack.Navigator>
-      <Stack.Screen name="HomeScreen" component={HomeScreen}/>
-      <Stack.Screen name="DrinkScreen" component={DrinkScreen}/>
+      <Stack.Screen
+        name="HomeScreen"
+        component={HomeScreen}
+        options={{
+          title: "",
+          headerStyle: {
+            backgroundColor: "#171717",
+          },
+          headerTintColor: "#fff",
+          headerTitleStyle: {
+            fontWeight: "bold",
+          },
+          headerShown: true,
+          headerTransparent: false
+        }}
+      />
+      <Stack.Screen
+        name="DrinkScreen"
+        component={DrinkScreen}
+        options={{
+          title: "",
+          headerStyle: {
+            backgroundColor: "#171717",
+          },
+          headerTintColor: "#fff",
+          headerTitleStyle: {
+            fontWeight: "bold",
+          },
+        }}
+      />
     </Stack.Navigator>
   );
 }
 
 const styles = StyleSheet.create({
-  container: { backgroundColor: "#E40066" },
+  container: { backgroundColor: "#171717" },
   input: {
     flex: 1,
     height: 50,

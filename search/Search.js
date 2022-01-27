@@ -62,7 +62,7 @@ export default function Search() {
 }
 
 const styles = StyleSheet.create({
-  container: {},
+  container: { backgroundColor: "#171717" },
   search: {
     marginBottom: 0,
     backgroundColor: "#fff",

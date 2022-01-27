@@ -68,14 +68,13 @@ const styles = StyleSheet.create({
   },
   category: {
     borderWidth: 0,
-    borderRadius: 10,
-    margin: 10,
-    backgroundColor: "#fff",
+    marginTop: 10,
+
   },
   title: {
     margin: 10,
     fontSize: 20,
     fontWeight: "bold",
-    color: "#000",
+    color: "#fff",
   },
 });

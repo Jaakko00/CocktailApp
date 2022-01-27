@@ -66,31 +66,44 @@ export default function DrinkScreen(props) {
           </ImageBackground>
         </View>
 
-        <View style={styles.ingredients}>
-          <Text>
-            {searchResult.strMeasure1}
-            {searchResult.strIngredient1}
-          </Text>
+        <View style={[styles.ingredientBox, styles.shadowProp]}>
+          <View style={styles.ingredients}>
+            <View style={styles.ingredient}>
+              <Text style={[styles.ingredientText, { fontWeight: "bold" }]}>
+                {searchResult.strIngredient1}
+              </Text>
+              <Text style={styles.ingredientText}>{searchResult.strMeasure1}</Text>
+            </View>
 
-          <Text>
-            {searchResult.strMeasure2}
-            {searchResult.strIngredient2}
-          </Text>
+            <View style={styles.ingredient}>
+              <Text style={[styles.ingredientText, { fontWeight: "bold" }]}>
+                {searchResult.strIngredient2}
+              </Text>
+              <Text style={styles.ingredientText}>{searchResult.strMeasure2}</Text>
+            </View>
 
-          <Text>
-            {searchResult.strMeasure3}
-            {searchResult.strIngredient3}
-          </Text>
+            <View style={styles.ingredient}>
+              <Text style={[styles.ingredientText, { fontWeight: "bold" }]}>
+                {searchResult.strIngredient3}
+              </Text>
+              <Text style={styles.ingredientText}>{searchResult.strMeasure3}</Text>
+            </View>
 
-          <Text>
-            {searchResult.strMeasure4}
-            {searchResult.strIngredient4}
-          </Text>
+            <View style={styles.ingredient}>
+              <Text style={[styles.ingredientText, { fontWeight: "bold" }]}>
+                {searchResult.strIngredient4}
+              </Text>
+              <Text style={styles.ingredientText}>{searchResult.strMeasure4}</Text>
+            </View>
+            
+          </View>
         </View>
 
         <View style={styles.instructions}>
-          <Text>{"Served from: " + searchResult.strGlass}</Text>
-          <Text>{searchResult.strInstructions}</Text>
+          <Text style={[styles.text, { fontStyle: "italic", marginBottom: 5 }]}>
+            {"Served from: " + searchResult.strGlass}
+          </Text>
+          <Text style={styles.text}>{searchResult.strInstructions}</Text>
         </View>
       </ScrollView>
     </View>
@@ -98,7 +111,7 @@ export default function DrinkScreen(props) {
 }
 
 const styles = StyleSheet.create({
-  results: {},
+  results: {backgroundColor: "#171717"},
   info: {
     height: 400,
     width: "100%",
@@ -114,8 +127,6 @@ const styles = StyleSheet.create({
   image: {
     height: 400,
     width: "100%",
-    borderWidth: 0,
-    borderRadius: 10,
   },
   cardText: {
     borderWidth: 0,
@@ -137,10 +148,40 @@ const styles = StyleSheet.create({
     fontStyle: "italic",
     color: "#fff",
   },
-  title: {
+  ingredientBox: {
+    borderWidth: 1,
+    borderRadius: 10,
     margin: 10,
-    fontSize: 20,
-    fontWeight: "bold",
-    color: "#000",
+    backgroundColor: "#E40066",
+  },
+  ingredients: {
+    borderWidth: 0,
+    margin: 10,
+    marginBottom: 15,
+  },
+  ingredient: {
+    marginTop: 5,
+    borderBottomWidth: 1,
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
+  ingredientText: {
+    color: "#fff",
+    fontSize: 15,
+  },
+  text: {
+    color: "#fff",
+    fontSize: 15,
+  },
+  instructions: {
+    borderWidth: 0,
+    borderRadius: 0,
+    margin: 10,
+  },
+  shadowProp: {
+    shadowColor: "#000",
+    shadowOffset: { width: -3, height: 4 },
+    shadowOpacity: 0.2,
+    shadowRadius: 3,
   },
 });
