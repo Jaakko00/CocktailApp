@@ -35,6 +35,34 @@ function HomeScreen(props) {
           category="Punch / Party Drink"
           navigate={props.navigation.navigate}
         ></Category>
+        <Category
+          category="Ordinary Drink"
+          navigate={props.navigation.navigate}
+        ></Category>
+        <Category
+          category="Beer"
+          navigate={props.navigation.navigate}
+        ></Category>
+        <Category
+          category="Cocoa"
+          navigate={props.navigation.navigate}
+        ></Category>
+        <Category
+          category="Milk / Float / Shake"
+          navigate={props.navigation.navigate}
+        ></Category>
+        <Category
+          category="Soft Drink / Soda"
+          navigate={props.navigation.navigate}
+        ></Category>
+        <Category
+          category="Coffee / Tea"
+          navigate={props.navigation.navigate}
+        ></Category>
+        <Category
+          category="Other/Unknown"
+          navigate={props.navigation.navigate}
+        ></Category>
       </ScrollView>
     </View>
   );

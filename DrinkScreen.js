@@ -15,7 +15,6 @@ export default function DrinkScreen(props) {
   const [searched, setSearched] = useState(false);
 
   useEffect(() => {
-    console.log(props);
     handleSearch();
   });
 
@@ -35,7 +34,6 @@ export default function DrinkScreen(props) {
         .then(function (response) {
           if (response.data !== null) {
             setSearchResult(response.data.drinks[0]);
-            console.log(response.data.drinks[0].strDrink);
           }
         })
         .catch(function (error) {
