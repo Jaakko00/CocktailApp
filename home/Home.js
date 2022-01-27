@@ -14,7 +14,7 @@ import TodaysDrink from "./TodaysDrink";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
 import { TabRouter } from "react-navigation";
-import DrinkScreen from "../DrinkScreen";
+import DrinkScreen from "../drink/DrinkScreen";
 
 const Stack = createStackNavigator();
 

@@ -14,7 +14,7 @@ import SearchResults from "./SearchResults";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
 import { TabRouter } from "react-navigation";
-import DrinkScreen from "../DrinkScreen";
+import DrinkScreen from "../drink/DrinkScreen";
 
 const Stack = createStackNavigator();
 
@@ -126,7 +126,7 @@ const styles = StyleSheet.create({
     flex: 1,
     height: 50,
     borderWidth: 1,
-    borderRadius: 10,
+    borderRadius: 15,
     padding: 10,
     fontSize: 20,
     margin: 10,
