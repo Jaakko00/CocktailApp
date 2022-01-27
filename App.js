@@ -4,7 +4,7 @@ import Search from './search/Search';
 import Home from './home/Home';
 import Saved from "./saved/Saved";
 import * as React from "react";
-import { NavigationContainer } from "@react-navigation/native";
+import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createStackNavigator } from "@react-navigation/stack";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
@@ -14,22 +14,26 @@ const Tab = createBottomTabNavigator();
 
 
 function MyTabs() {
-  
-
   return (
     <Tab.Navigator
-      initialRouteName="Feed"
+      initialRouteName="Home"
+      sceneContainerStyle={{
+        backgroundColor: "#171717"
+      }}
       
       screenOptions={{
         tabBarActiveTintColor: "#E40066",
         tabBarInactiveTintColor: "#fff",
-        tabBarActiveBackgroundColor: "#171717",
-        tabBarInactiveBackgroundColor: "#171717",
+        tabBarActiveBackgroundColor: "transparent",
+        tabBarInactiveBackgroundColor: "transparent",
+        
+        
         
         headerShown: false,
+        
         style: {
           backgroundColor: "#171717",
-          paddingBottom: 100,
+          
           
         },
       }}
@@ -73,9 +77,15 @@ function MyTabs() {
 }
 
 export default function App() {
+  const navTheme = {
+    colors: {
+      background: "#171717"
+    }
+  };
+
   return (
-    <NavigationContainer style={{backgroundColor: "#171717"}}>
-      <MyTabs />
+    <NavigationContainer theme={navTheme}>
+      <MyTabs></MyTabs>
     </NavigationContainer>
   );
 }

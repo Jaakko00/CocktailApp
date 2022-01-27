@@ -30,7 +30,7 @@ export default function SearchResults(props) {
   
   return (
     <View >
-      <ScrollView >
+      <ScrollView style={{height: "100%"}}>
         {results}
         {results == null && noResults}
         

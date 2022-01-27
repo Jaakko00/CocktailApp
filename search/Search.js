@@ -80,7 +80,7 @@ export default function Search() {
         name="SearchScreen"
         component={SearchScreen}
         options={{
-          title: "",
+          title: "Search",
           headerStyle: {
             backgroundColor: "#171717",
           },

@@ -49,16 +49,14 @@ export default function Home() {
         name="HomeScreen"
         component={HomeScreen}
         options={{
-          title: "",
+          title: "Home",
           headerStyle: {
             backgroundColor: "#171717",
           },
           headerTintColor: "#fff",
-          headerTitleStyle: {
-            fontWeight: "bold",
-          },
+          
           headerShown: true,
-          headerTransparent: false
+          headerTransparent: false,
         }}
       />
       <Stack.Screen
