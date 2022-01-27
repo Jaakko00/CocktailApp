@@ -2,7 +2,6 @@ import { Text, View } from 'react-native';
 import { useEffect, useState } from "react";
 import Search from './search/Search';
 import Home from './home/Home';
-import Saved from "./saved/Saved";
 import * as React from "react";
 import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -62,16 +61,7 @@ function MyTabs() {
           ),
         }}
       />
-      <Tab.Screen
-        name="Saved"
-        component={Saved}
-        options={{
-          tabBarLabel: "Saved",
-          tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="heart" color={color} size={size} />
-          ),
-        }}
-      />
+      
     </Tab.Navigator>
   );
 }
