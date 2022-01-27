@@ -11,7 +11,7 @@ export default function SearchResults(props) {
         </Text>
       </View>
     );
-    if(props.searched) {
+    if(props.searchResult != null) {
       
         results = props.searchResult.map(
           ({ strDrink, idDrink, strCategory, strAlcoholic, strDrinkThumb }) => (
@@ -32,7 +32,7 @@ export default function SearchResults(props) {
     <View >
       <ScrollView style={{height: "100%"}}>
         <View style={{marginBottom: 140,}}>
-          {results}
+        {results != null && results}
         {results == null && noResults}
         </View>
         
