@@ -29,10 +29,7 @@ export default function DrinkCard(props) {
             <View style={styles.cardText}>
               <Text style={styles.cardTitle}>
                 {props.name}
-                <MaterialCommunityIcons
-                  name="glass-cocktail"
-                  size={25}
-                ></MaterialCommunityIcons>
+                
               </Text>
 
               <Text style={styles.cardInfo}>
