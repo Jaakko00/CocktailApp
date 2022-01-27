@@ -115,7 +115,7 @@ const styles = StyleSheet.create({
   container: { backgroundColor: "#171717" },
   search: {
     marginBottom: 0,
-    backgroundColor: "#fff",
+    backgroundColor: "transparent",
     alignItems: "center",
     justifyContent: "center",
     flexDirection: "row",
@@ -125,8 +125,11 @@ const styles = StyleSheet.create({
   input: {
     flex: 1,
     height: 50,
-    borderWidth: 0,
+    borderWidth: 1,
+    borderRadius: 10,
     padding: 10,
     fontSize: 20,
+    margin: 10,
+    backgroundColor: "#fff",
   },
 });
