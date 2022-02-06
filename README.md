@@ -35,5 +35,4 @@ and scan the given QR with your mobile phone
 
 API by [The CocktailDB](https://www.thecocktaildb.com/api.php)
 
-## How to use?
 
