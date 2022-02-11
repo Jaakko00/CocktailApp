@@ -1,5 +1,6 @@
-## Cocktail App
-An application for searching cocktail/drink recipes.
+<h1 align="center">Cocktail App</h1>
+<h4 align="center">An application for searching cocktail/drink recipes.</h1>
+<br>
 
 ## Screenshots
 [SCREENCAST HERE](https://www.youtube.com/watch?v=IJkiq8hhMFY)
