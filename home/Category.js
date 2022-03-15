@@ -37,8 +37,7 @@ export default function Category(props) {
   };
 
   let results;
-  if (searchResult !== null) {
-      
+  if (searchResult !== null && searchResult !== undefined) {
     results = searchResult.map(
       ({ strDrink, idDrink, strCategory, strAlcoholic, strDrinkThumb }) => (
         <DrinkSquare

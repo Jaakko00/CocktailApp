@@ -52,11 +52,11 @@ function HomeScreen(props) {
           navigate={props.navigation.navigate}
         ></Category>
         <Category
-          category="Milk / Float / Shake"
+          category="Shake"
           navigate={props.navigation.navigate}
         ></Category>
         <Category
-          category="Soft Drink / Soda"
+          category="Soft Drink"
           navigate={props.navigation.navigate}
         ></Category>
         <Category
